@@ -212,6 +212,8 @@ public class MyAnimal
 	  	if(a.fly().equals("YES"))
 	  		System.out.println(a.name);
 	  }
+
+	  
 	}
 }
 
