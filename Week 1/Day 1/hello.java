@@ -1,7 +1,12 @@
-class hello
+class Hello
 {
 	public static void main(String[] args)
 	{
-		System.out.println("hello world");
+		if(args.length > 0)
+		{
+			System.out.println("ALERT");
+			System.exit(0);
+		}
+		System.out.println("hello world");	
 	}
 }
