@@ -24,13 +24,8 @@ public class PrefixAsKey
 			m.get(w.substring(0,3)).add(w);
 		}
 	}
+	
+	m.entrySet().stream().forEach(mp->System.out.println("Prefix : "+mp.getKey()+"\t"+"WORDS :   "+mp.getValue()));
 
-	for(Map.Entry<String,List<String>> e : m.entrySet())
-	{
-		String key = e.getKey();
-		List<String> val = e.getValue();
-		Collections.sort(val);
-		System.out.println("Prefix : "+ key +"\t"+"WORDS :   "+ val);
-	}
  }
 }
