@@ -1,0 +1,38 @@
+[
+	{
+		"Name": "john",
+		"Address": "Adambakkam",
+		"PhoneNumber":[
+			{
+				"Number": "9267856789",
+				"Type":"HOME"
+			}
+		]
+	},
+
+	{
+		"Name": "Ram",
+		"Address": "Madipakkam",
+		"PhoneNumber":[
+			{
+				"Number": "9267852323",
+				"Type":"MOBILE"
+			},
+			{
+				"Number": "04422567897",
+				"Type":"MOBILE"
+			}
+		]
+	},
+
+	{
+		"Name": "Mark",
+		"Address": "Sowkarpet",
+		"PhoneNumber":[
+			{
+				"Number": "9267234780",
+				"Type":"WORK"
+			}
+		]
+	}
+]
