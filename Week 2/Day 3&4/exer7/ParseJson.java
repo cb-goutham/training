@@ -17,8 +17,6 @@ public class ParseJson
 			//Getting Student
 			JSONObject Student = (JSONObject)jsonObject.get("Student");
 
-			for(key : Student)
-				var info = Student[key];
 			String studName = (String)Student.get("Name");
 			String doj = (String)Student.get("Date Of Joining");
 			String id = (String)Student.get("ID");

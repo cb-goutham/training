@@ -83,7 +83,12 @@ class PhoneBook
 			{
 				System.out.print("Enter the Name of the CONTACT : ");
 				String name = in.next();
-				phonebook.entrySet().stream().filter(ph -> ph.getKey().startsWith(name)).forEach(ph->display(ph.getValue()));
+				if(phonebook.containsKey(name))
+				{
+					display(phonebook.get(name));
+				}
+				else
+					phonebook.entrySet().stream().filter(ph -> ph.getKey().startsWith(name)).forEach(ph->display(ph.getValue()));
 				break;
 			}
 
