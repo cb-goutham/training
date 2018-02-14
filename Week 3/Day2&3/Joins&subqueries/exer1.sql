@@ -1,0 +1,6 @@
+select name,subject_id,quarterly,half_yearly,annual,year,grade from marks inner join students on marks.student_id =students.id where annual is NULL;
+select name,subject_id,year from marks inner join students on marks.student_id =students.id where annual is null and year=2005;
+select name,subject_id,year from marks inner join students on marks.student_id =students.id where not(annual is null and quarterly is null and half_yearly is null);
+select name,subject_id,year,quarterly,half_yearly,annual from marks inner join students on marks.student_id = students.id where (quarterly > 90 and half_yearly > 90 and annual > 90);
+select name,subject_id,year,avg((quarterly + half_yearly + annual)/3) as average from marks inner join students on marks.student_id = students.id group by subject_id,year;
+select name,subject_id,year,avg((quarterly + half_yearly + annual)/3) as average from marks inner join students on marks.student_id = students.id  where year = 2003 or year = 2004 group by subject_id,year;
