@@ -10,7 +10,7 @@ class jdbcConnect
 		{
 			int id =0;
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","9696");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","1234");
 			String query = "insert into person (name,address) values ("+"\""+name+"\""+",\""+address+"\")";
 			Statement stmt = con.createStatement();
 			Integer num = stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
@@ -42,7 +42,7 @@ class jdbcConnect
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","9696");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","1234");
 			Statement stmt = con.createStatement();
 			Statement stmt1 = con.createStatement();
 			ResultSet rs1,rs2,rs;
@@ -113,7 +113,7 @@ class jdbcConnect
 	{
 		String sql="";
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","9696");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","1234");
 		Statement stmt = con.createStatement();
 		if(ch == 1)
 			sql = "update person set name = \""+mod+"\" where pid = '"+cpid+"'";
