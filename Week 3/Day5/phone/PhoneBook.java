@@ -69,7 +69,9 @@ class PhoneBook
 						{
 							System.out.print("Enter the Name : ");
 							String name = inp.next();
-							connect.search(name,null);
+							int flag = connect.search(name,null);
+							if(flag == 0)
+								System.out.println("NO RECORDs FOUND");
 							break;
 						}
 				case 3:
@@ -84,6 +86,12 @@ class PhoneBook
 							char choice;
 							System.out.println("Enter the Contact Name which You want to modify ");
 							String cname = inp.next();
+							int flag = connect.search(cname,null);
+							if(flag == 1)
+						{
+							System.out.println("Choose PID from above");
+							int cpid = in.nextInt();
+
 							do
 							{
 								System.out.println("1.MODIFY NAME : ");
@@ -99,7 +107,7 @@ class PhoneBook
 											{
 												System.out.print("NEW NAME : ");
 												String name = inp.next();
-												connect.updateTable(cname, 1,name);
+												connect.updateTable(cpid, 1,name);
 												break;
 											}
 									case 2:
@@ -107,35 +115,38 @@ class PhoneBook
 
 												System.out.print("NEW ADDRESS : ");
 												String addr = inp.next();
-												connect.updateTable(cname, 2,addr);
+												connect.updateTable(cpid, 2,addr);
 												break;
 											}
 									case 3:
 											{
 												System.out.print("NEW HOME : ");
 												String h = in.next();
-												connect.updateTable(cname, 3,h);
+												connect.updateTable(cpid, 3,h);
 												break;
 											}
 									case 4:
 											{
 												System.out.print("NEW MOBILE : ");
 												String m = in.next();
-												connect.updateTable(cname, 4,m);
+												connect.updateTable(cpid, 4,m);
 												break;
 											}
 									case 5:
 											{
 												System.out.print("NEW WORK : ");
 												String w = in.next();
-												connect.updateTable(cname, 5,w);
+												connect.updateTable(cpid, 5,w);
 												break;
 											}
 								}
 							System.out.println("DO YOU WANT TO CONTINUE ? (Y/N) ");
 							choice = inp.next().charAt(0);	
 							}while(choice == 'y' || choice == 'Y');
-							break; 
+						 }
+						 else
+						 	System.out.println("NO RECORDs FOUND");
+						break; 
 						} 
 
 				case 5:

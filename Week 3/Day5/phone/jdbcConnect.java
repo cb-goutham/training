@@ -10,7 +10,7 @@ class jdbcConnect
 		{
 			int id =0;
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","1234");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","9696");
 			String query = "insert into person (name,address) values ("+"\""+name+"\""+",\""+address+"\")";
 			Statement stmt = con.createStatement();
 			Integer num = stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
@@ -35,18 +35,18 @@ class jdbcConnect
 		}
 	}
 
-	public static void search(String name , String num)
+	public static int search(String name , String num)
 	{
 		try
 		{
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","1234");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","9696");
 			Statement stmt = con.createStatement();
 			Statement stmt1 = con.createStatement();
 			ResultSet rs1,rs2,rs;
-			
+			int flag =0;
 			if(num == null)
 			{
 				rs = stmt.executeQuery("select * from person");
@@ -56,7 +56,8 @@ class jdbcConnect
 					
 					if(rs.getString(2).contains(name))
 					{
-					
+						flag =1;
+						System.out.println(rsmd.getColumnName(1)+" : "+rs.getString(1));
 						System.out.println(rsmd.getColumnName(2)+" : "+rs.getString(2));
 						System.out.println(rsmd.getColumnName(3)+" : "+rs.getString(3));
 						String query = "select type,phNumber from phoneNumbers where id = "+rs.getInt(1);
@@ -69,6 +70,8 @@ class jdbcConnect
 
 
 				}
+				con.close();
+				return flag;
 				
 			}
 			else
@@ -87,39 +90,41 @@ class jdbcConnect
 						System.out.println(rsmd1.getColumnName(3)+" : "+rs2.getString(3));
 					} 
 				}
-
+				con.close();
+				return 1;
 
 			}
 		
 
-			con.close();
+			
 		}
 		catch(Exception e)
 		{
 			System.err.println(e);
 		}
+		return 1;
 		
 	}
 
-	public static void updateTable(String cname ,int ch , String mod)
+	public static void updateTable(int cpid ,int ch , String mod)
 	{
 		
 	try
 	{
 		String sql="";
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","1234");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phonebook","root","9696");
 		Statement stmt = con.createStatement();
 		if(ch == 1)
-			sql = "update person set name = \""+mod+"\" where name = \""+cname+"\"";
+			sql = "update person set name = \""+mod+"\" where pid = '"+cpid+"'";
 		if(ch == 2)
-			sql = "update person set address = \""+mod+"\" where name = \""+cname+"\"";
+			sql = "update person set address = \""+mod+"\" where pid = '"+cpid+"'";
 		if(ch == 3)
-			sql = "update phoneNumbers set phNumber = "+mod+" where type = \"MOBILE\" and  id = (select pid from person where name = '"+cname+"')";
+			sql = "update phoneNumbers set phNumber = "+mod+" where type = \"MOBILE\" and  id ='"+cpid+"'";
 		if(ch == 4)
-			sql = "update phoneNumbers set phNumber = "+mod+" where type = \"HOME\" and  id = (select pid from person where name = '"+cname+"')";
+			sql = "update phoneNumbers set phNumber = "+mod+" where type = \"HOME\" and  id = "+cpid+"'";
 		if(ch == 5)
-			sql = "update phoneNumbers set phNumber = "+mod+" where type = \"WORK\" and  id = (select pid from person where name = '"+cname+"')";
+			sql = "update phoneNumbers set phNumber = "+mod+" where type = \"WORK\" and  id = '"+cpid+"'";
 
 		stmt.executeUpdate(sql);
 		System.out.println("RECORDS UPDATED \n");
