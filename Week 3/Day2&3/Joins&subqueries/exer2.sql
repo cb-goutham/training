@@ -5,7 +5,7 @@ select name,grade,count(medal_won) as no_of_medals from medals inner join studen
 select name,grade,count(medal_won) as no_of_medals from students left join medals on student_id = students.id group by name having no_of_medals < 2;
 
 select name,s.year from 
-(select student_id,name , year from students inner join marks on student_id = students.id where annual > 90 group by name,year having count(annual)=5) as s 
+(select student_id,name , year from students inner join marks on student_id = students.id where annual > 30 group by name,year having count(annual)=5) as s 
 left join medals on medals.student_id = s.student_id group by name,year having count(medal_won) =0;
 
 
