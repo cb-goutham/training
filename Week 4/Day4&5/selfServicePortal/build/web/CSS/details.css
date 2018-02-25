@@ -1,0 +1,98 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 25, 2018, 4:11:38 PM
+    Author     : cb-goutham
+*/
+
+body{
+    background-color: #f0f0f5;
+}
+.header{
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: #a79afe;
+    height:50px;
+    width:100%;
+    position: absolute;
+    font-family: 'Arial' ; 
+    color: #ffffff;
+
+}
+
+
+
+label{
+     display: inline-block;
+     width: 140px;
+     text-align: center;
+     alignment-adjust: auto;
+}
+.frm {
+   
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 32%;
+}
+.input {
+    width: 57%;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    background: transparent;
+    
+}
+.addr {
+    width: 57%;
+    padding: 10px 10px;
+    margin-left: 140px;
+    margin-top: 10px;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    background: transparent;
+    
+}
+.addr2 {
+    width: 25%;
+    padding: 10px 10px;
+    margin-left: 140px;
+    margin-top: 10px;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    background: transparent;
+    
+}
+.name
+{
+    width: 25%;
+    padding: 10px 10px;
+    margin: 10px 5px;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    background: transparent;
+    
+}
+.button{
+    background-color: #ff6666;
+    color: white;
+    padding: 14px 10px;
+    margin-top: 30px;
+    margin-left: 140px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+
+
+
